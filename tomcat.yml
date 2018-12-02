@@ -1,0 +1,25 @@
+---
+- hosts: appserver
+  sudo: yes
+  user: ansible
+  gather_facts: no
+  tasks:
+    - name: installing java on server
+      yum:
+        name: java-1.6.0-openjdk.x86_64
+        state: present
+        update_chache: yes
+    - name: installing tomcat on server
+      yum:
+        name: yum install tomcat
+        state: present
+        update_chache: yes
+    - name: download jenkins.war file to tomcat webapps folder
+      get_url:
+        url: http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+        dest: /usr/share/tomcat/webapps/jenkins.war
+    - name: start the service
+      service:
+        name: tomcat
+        service: started
+        enabled: yes
