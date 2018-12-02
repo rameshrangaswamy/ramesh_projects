@@ -1,0 +1,29 @@
+--- #list of theatres
+theatres:
+  - name: sandhya  #listitem
+    showtime:
+      - 11.30
+      - 3.30
+    movies:
+      - A
+    price:
+      - 100
+    active: yes
+   - name: padmavath #listitem
+    showtime:
+      - 11.30
+      - 3.30
+    movies:
+      - B
+    price:
+      - 200  
+    active: yes
+  - name: PVR cinemas #listitem
+    showtime: 
+      - 11.30
+      - 3.30
+    movies:
+      - C
+    price:
+      - 300
+    active: no
