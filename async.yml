@@ -1,0 +1,25 @@
+---
+- hosts: all
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  vars_prompt:
+    - name: pkgname
+      prompt: enter package to install  
+  tasks:
+    - name: java-1.8.0-openjdk.x86_64
+      state: present
+      update_cache: yes
+    - name: install package
+      yum: name='{{pkgname}}' 
+      update_cache: yes
+      state: present
+      async: 300
+      poll: 3
+      notify: restart httpd
+  handlers: 
+    - name: restart httpd #this has to match the notify name#:
+      service: 
+        name: httpd
+        state: restarted
