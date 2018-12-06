@@ -1,0 +1,10 @@
+---
+- hosts: appserver
+  tasks:
+   - name: just checking group vars
+     debug: 
+       msg: "{{name}}"
+   - name: just checking host vars
+     debug:
+       msg: "check_command"
+    
